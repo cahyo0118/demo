@@ -16,7 +16,8 @@
 	<description>Demo project for Spring Boot</description>
 	<modules>
 		<module>log-client</module>
-	</modules>
+        <module>wsdl-to-pojo</module>
+    </modules>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
