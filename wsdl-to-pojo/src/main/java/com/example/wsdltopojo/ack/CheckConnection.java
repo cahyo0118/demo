@@ -1,14 +1,17 @@
 
 package com.example.wsdltopojo.ack;
 
-import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
@@ -20,26 +23,25 @@ import jakarta.xml.bind.annotation.*;
  *   </complexContent>
  * </complexType>
  * }</pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "memberCode"
 })
-@XmlRootElement(name = "CheckConnection", namespace = "http://service.ws.wsdltopojo.example.com/")
+@XmlRootElement(name = "CheckConnection")
 public class CheckConnection {
 
-    @XmlElement(namespace = "http://service.ws.wsdltopojo.example.com/")
     protected String memberCode;
 
     /**
      * Gets the value of the memberCode property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getMemberCode() {
         return memberCode;
@@ -47,11 +49,11 @@ public class CheckConnection {
 
     /**
      * Sets the value of the memberCode property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setMemberCode(String value) {
         this.memberCode = value;

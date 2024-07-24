@@ -25,6 +25,7 @@ public class AckDataInvestorServiceImpl{
         response.setReceiveAckResult(12);
         return response;
     }
+
 //    @WebMethod(operationName = "CheckConnection")
 //    public CheckConnectionResponse checkConnection(@WebParam(name = "memberCode") String memberCode) {
 //        CheckConnectionResponse response = new CheckConnectionResponse();
