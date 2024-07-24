@@ -17,6 +17,7 @@
 	<modules>
 		<module>log-client</module>
         <module>wsdl-to-pojo</module>
+        <module>aspect-oriented-programming</module>
     </modules>
 	<properties>
 		<java.version>21</java.version>

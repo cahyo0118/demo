@@ -9,10 +9,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.example.demo.logclient</groupId>
-    <artifactId>log-client</artifactId>
+    <groupId>com.example.demo.aop</groupId>
+    <artifactId>aspect-oriented-programming</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>log-client</name>
+    <name>aspect-oriented-programming</name>
     <description>Demo project for Spring Boot</description>
     <packaging>jar</packaging>
 
@@ -22,17 +22,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                    <finalName>${project.name}</finalName>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.example.demo.logclient</groupId>
+            <artifactId>log-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
