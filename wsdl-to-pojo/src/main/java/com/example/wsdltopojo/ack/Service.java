@@ -16,7 +16,7 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 3.0
  * 
  */
-@WebServiceClient(name = "Service", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/C:/Users/O2310245/IdeaProjects/2024/demo/wsdl-to-pojo/src/main/resources/AckService.wsdl")
+@WebServiceClient(name = "Service", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/C:/Users/nurca/Documents/allo-workspace/demo/wsdl-to-pojo/src/main/resources/AckService.wsdl")
 public class Service
     extends jakarta.xml.ws.Service
 {
@@ -29,7 +29,7 @@ public class Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/O2310245/IdeaProjects/2024/demo/wsdl-to-pojo/src/main/resources/AckService.wsdl");
+            url = new URL("file:/C:/Users/nurca/Documents/allo-workspace/demo/wsdl-to-pojo/src/main/resources/AckService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
