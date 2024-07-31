@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://tempuri.org/Services.asmx/getResponseFile" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:import namespace="http://tempuri.org/Services.asmx/getResponseFile"/>
+            <s:element name="CheckConnection">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CheckConnectionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="CheckConnectionResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ReceiveAck">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" ref="s1:getFileResponse"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ReceiveAckResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ReceiveAckResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/Services.asmx/getResponseFile">
+            <s:element name="getFileResponse" nillable="true" type="s1:CFileContent"/>
+            <s:complexType name="CFileContent">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="fileContents" type="s:base64Binary"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="sizeInBytes" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="crc32" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="CheckConnectionSoapIn">
+        <wsdl:part name="parameters" element="tns:CheckConnection"/>
+    </wsdl:message>
+    <wsdl:message name="CheckConnectionSoapOut">
+        <wsdl:part name="parameters" element="tns:CheckConnectionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ReceiveAckSoapIn">
+        <wsdl:part name="parameters" element="tns:ReceiveAck"/>
+    </wsdl:message>
+    <wsdl:message name="ReceiveAckSoapOut">
+        <wsdl:part name="parameters" element="tns:ReceiveAckResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ServiceSoap">
+        <wsdl:operation name="CheckConnection">
+            <wsdl:input message="tns:CheckConnectionSoapIn"/>
+            <wsdl:output message="tns:CheckConnectionSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveAck">
+            <wsdl:input message="tns:ReceiveAckSoapIn"/>
+            <wsdl:output message="tns:ReceiveAckSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckConnection">
+            <soap:operation soapAction="http://tempuri.org/CheckConnection" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveAck">
+            <soap:operation soapAction="http://tempuri.org/ReceiveAck" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckConnection">
+            <soap12:operation soapAction="http://tempuri.org/CheckConnection" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReceiveAck">
+            <soap12:operation soapAction="http://tempuri.org/ReceiveAck" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Service">
+        <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+            <soap:address location="https://rdnack.allobank.local:18180/ws"/>
+        </wsdl:port>
+        <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+            <soap12:address location="https://rdnack.allobank.local:18180/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
