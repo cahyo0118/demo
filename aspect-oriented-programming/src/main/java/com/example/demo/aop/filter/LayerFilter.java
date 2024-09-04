@@ -16,6 +16,13 @@ public class LayerFilter {
 
     private static final Logger log = LoggerFactory.getLogger(LayerFilter.class);
 
+    @Before("execution(* com.example.demo.aop.filter..*(..))")
+    public void doBeforeAOP(JoinPoint joinPoint) {
+        log.warn("[AOP][BEFORE][SAME_MODULE][AOP][KIND] {}", joinPoint.getKind());
+        log.warn("[AOP][BEFORE][SAME_MODULE][AOP][toShortString] {}", joinPoint.toShortString());
+        log.warn("[AOP][BEFORE][SAME_MODULE][AOP][args] {}", joinPoint.getArgs());
+    }
+
     @Before("execution(* com.example.demo.aop.controller..*(..))")
     public void doBeforeController(JoinPoint joinPoint) {
         log.warn("[AOP][BEFORE][SAME_MODULE][CONTROLLER][KIND] {}", joinPoint.getKind());
@@ -27,10 +34,13 @@ public class LayerFilter {
     public Object doAroundController(ProceedingJoinPoint joinPoint) throws Throwable {
         log.warn("[AOP][AROUND][SAME_MODULE][CONTROLLER][KIND] {}", joinPoint.getKind());
         log.warn("[AOP][AROUND][SAME_MODULE][CONTROLLER][toShortString] {}", joinPoint.toShortString());
-        Object result = joinPoint.proceed();
-        result = ResponseEntity.ok(new HashMap<>() {{
+        log.warn("[AOP][AROUND][SAME_MODULE][CONTROLLER][args] {}", joinPoint.getArgs());
+        Object result = ResponseEntity.ok(new HashMap<>() {{
             put("message", "AOP SENT THEIR REGARDS");
+            put("body", "THIS IS BODY");
         }});
+        log.warn("[AOP][AROUND][SAME_MODULE][CONTROLLER][joinPoint.proceed()] {}", result);
+        joinPoint.proceed();
         return result;
     }
 

@@ -19,7 +19,9 @@
         <module>wsdl-to-pojo</module>
         <module>aspect-oriented-programming</module>
 		<module>jtpm-mock</module>
-	</modules>
+		<module>keypair-validator</module>
+        <module>otel-cleint-1</module>
+    </modules>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

@@ -31,10 +31,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "receiveAckResult"
 })
-@XmlRootElement(name = "ReceiveAckResponse", namespace = "http://tempuri.org/")
+@XmlRootElement(name = "ReceiveAckResponse")
 public class ReceiveAckResponse {
 
-    @XmlElement(name = "ReceiveAckResult", namespace = "http://tempuri.org/")
+    @XmlElement(name = "ReceiveAckResult")
     protected int receiveAckResult;
 
     /**
