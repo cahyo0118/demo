@@ -22,7 +22,9 @@
 		<module>keypair-validator</module>
         <module>otel-cleint-1</module>
 		<module>otel-cleint-2</module>
-    </modules>
+        <module>dependency-injection</module>
+		<module>snap</module>
+	</modules>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
