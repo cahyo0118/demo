@@ -22,9 +22,12 @@ public class DemoController {
     private RestTemplateOtel2Service restTemplateOtel2Service;
 
     @PostMapping
-    public ResponseEntity<HashMap<String, Object>> postSomething(@RequestBody HashMap<String, Object> body) {
+    public ResponseEntity<HashMap<String, Object>> postSomething(@RequestBody HashMap<String, Object> body, @RequestHeader HashMap<String, String> headers) {
 
         log.info("POST HIT");
+        StringBuilder headersInfo = new StringBuilder();
+        headers.forEach((key, value) -> headersInfo.append(key).append(": ").append(value).append("\n"));
+        log.info("HEADERS -> {}", headersInfo);
         otel2Service.test2(new HashMap<>());
         otel2Service.postSomething(new HashMap<>());
 //        restTemplateOtel2Service.postSomething(new HashMap<>());

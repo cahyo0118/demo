@@ -1,8 +1,9 @@
 package com.example.snap.service;
 
+import com.example.snap.exception.AuthException;
+import com.example.snap.model.Merchant;
 import com.example.snap.model.User;
-import com.example.snap.repository.UserRepository;
-import org.apache.coyote.BadRequestException;
+import com.example.snap.repository.MerchantRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -22,16 +23,29 @@ import static org.mockito.Mockito.when;
 class AuthServiceTest {
 
     @Mock
-    private UserRepository userRepository;
+    private MerchantRepository merchantRepository;
 
     @InjectMocks
     private AuthService authService;
 
     @Test
-    void createB2bToken() {
-        String msisdn = "81225538093";
-        when(userRepository.findByMsisdn(any())).thenReturn(Optional.empty());
+    void createB2bToken_merchantFound() {
+        String merchantId = "PARTNER01";
+        when(merchantRepository.findByMerchantId(merchantId)).thenReturn(Optional.of(new Merchant(
+                "PARTNER01",
+                "PARTNER 01"
+        )));
 
-        assertThrows(BadRequestException.class, () -> this.authService.createB2bToken(msisdn));
+        assertNotNull(this.authService.createB2bToken(merchantId));
+    }
+
+    @Test
+    void createB2bToken_merchantNotFound() {
+        String merchantId = "PARTNER01";
+        when(merchantRepository.findByMerchantId(any())).thenReturn(Optional.empty());
+
+        AuthException badRequestException = assertThrows(AuthException.class, () -> this.authService.createB2bToken(merchantId));
+
+        assertEquals("Partner Not Found", badRequestException.getMessage());
     }
 }
