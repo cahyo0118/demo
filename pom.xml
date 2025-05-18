@@ -24,6 +24,7 @@
 		<module>otel-cleint-2</module>
         <module>dependency-injection</module>
 		<module>snap</module>
+		<module>snap-payment</module>
 	</modules>
 	<properties>
 		<java.version>21</java.version>

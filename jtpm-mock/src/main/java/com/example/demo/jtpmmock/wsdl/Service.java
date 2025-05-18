@@ -16,7 +16,7 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 3.0
  * 
  */
-@WebServiceClient(name = "Service", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/C:/Users/O2310245/IdeaProjects/2024/demo/jtpm-mock/src/main/resources/AckDataInvestor.wsdl")
+@WebServiceClient(name = "Service", targetNamespace = "http://tempuri.org/", wsdlLocation = "file:/home/cahyo/apps/research/demo/jtpm-mock/src/main/resources/AckDataInvestor.wsdl")
 public class Service
     extends jakarta.xml.ws.Service
 {
@@ -29,7 +29,7 @@ public class Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/O2310245/IdeaProjects/2024/demo/jtpm-mock/src/main/resources/AckDataInvestor.wsdl");
+            url = new URL("file:/home/cahyo/apps/research/demo/jtpm-mock/src/main/resources/AckDataInvestor.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

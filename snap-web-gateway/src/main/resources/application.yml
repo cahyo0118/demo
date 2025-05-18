@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: snap-web-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: snap-auth
+          uri: http://localhost:8082
+          predicates:
+            - Path=/sapi/**
+          filters:
+            - RewritePath=/sapi/(?<segment>.*), /api/${segment}
+
+        - id: snap-payment
+          uri: http://localhost:8084
+          predicates:
+            - Path=/sapi/**
+          filters:
+            - RewritePath=/sapi/(?<segment>.*), /api/${segment}
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.reactive.DispatcherHandler: DEBUG
+    reactor.netty.http.client: DEBUG
+    reactor.netty.http.server: DEBUG
