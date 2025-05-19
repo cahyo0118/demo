@@ -14,12 +14,12 @@ spring:
           filters:
             - RewritePath=/sapi/(?<segment>.*), /api/${segment}
 
-        - id: snap-payment
-          uri: http://localhost:8084
-          predicates:
-            - Path=/sapi/**
-          filters:
-            - RewritePath=/sapi/(?<segment>.*), /api/${segment}
+#        - id: snap-payment
+#          uri: http://localhost:8084
+#          predicates:
+#            - Path=/sapi/**
+#          filters:
+#            - RewritePath=/sapi/(?<segment>.*), /api/${segment}
 
 logging:
   level:
