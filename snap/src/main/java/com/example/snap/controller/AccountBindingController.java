@@ -33,13 +33,4 @@ public class AccountBindingController {
         return new ResponseEntity<>(merchantMap, HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(
-            method = RequestMethod.POST,
-            path = "v1/registration-account-inquiry"
-    )
-    private ResponseEntity<HashMap<String, Object>> accountBindingInquiry(@RequestBody HashMap<String, Object> body) {
-        Merchant merchant = merchantRepository.findByMerchantId(String.valueOf(body.get("merchantId"))).orElseThrow(() -> new AuthException(ReturnCodeEnum.PARTNER_NOT_FOUND_07));
-        HashMap<String, Object> merchantMap = merchantService.getMerchant(new HashMap<>());
-        return new ResponseEntity<>(merchantMap, HttpStatus.ACCEPTED);
-    }
 }
