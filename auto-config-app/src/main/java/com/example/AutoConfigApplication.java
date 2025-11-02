@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class DemoApplication {
+public class AutoConfigApplication {
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+        ApplicationContext context = SpringApplication.run(AutoConfigApplication.class, args);
         CustomLogger logger = context.getBean(CustomLogger.class);
         logger.log("Hello from auto-configured logger!");
     }

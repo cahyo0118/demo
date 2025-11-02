@@ -1,4 +1,4 @@
-package com.example.demo.autoconfig;
+package com.example.autoconfig;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

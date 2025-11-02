@@ -1,4 +1,4 @@
-package com.example.demo.autoconfig;
+package com.example.autoconfig;
 
 public class CustomLogger {
     private final String prefix;
