@@ -1,0 +1,1 @@
+INSERT INTO product(name, stock, version) VALUES ('Laptop', 10, 0);
