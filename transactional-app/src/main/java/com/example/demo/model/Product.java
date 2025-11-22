@@ -27,7 +27,4 @@ public class Product {
     @Version
     private Long version;
 
-    public void setStock(BigDecimal stock) {
-        this.stock = stock;
-    }
 }
