@@ -38,5 +38,11 @@ public class ProductService {
         Product result = repo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("product not found"));
         log.info("[{}] Updated stock: {}", newStock, gson.toJson(result));
+
+        log.info("[{}] Updated stock: {}", newStock, gson.toJson(result));
+
+        log.info("[{}] Updated stock: {}", newStock, gson.toJson(result));
+
+        log.info("[{}] Updated stock: {}", newStock, gson.toJson(result));
     }
 }
